@@ -16,22 +16,38 @@ http-server
 
 > For this section, I wrote some starter DOM elements in the `index.html` file.
 
-1. Write a selector that selects only the first sibling li elements.
-2. Make all li elements behave as inline elements.
-3. Only the odd section elements should have a border.
-4. Only the even li elements should have a lime background.
-5. Only the first aside element in the 2nd section should have blue font color.
-6. There are three div elements with instructions inside them about which side of the screen they should be displayed on. Follow those instructions.
-7. Using vanilla JavaScript, update the HTML of the element with the id of `vanilla_output` with the following text: "This content generated with vanilla JavaScript".
-8. Using jQuery, update the HTML of the element with the id of `jquery_output` with the following text: "This content generated with jQuery".
+√ 1. Write a selector that selects only the first sibling li elements.
+√ 2. Make all li elements behave as inline elements.
+√ 3. Only the odd section elements should have a border.
+√ 4. Only the even li elements should have a lime background.
+√ 5. Only the first aside element in the 2nd section should have blue font color.
+√ 6. There are three div elements with instructions inside them about which side of the screen they should be displayed on. Follow those instructions.
+√ 7. Using vanilla JavaScript, update the HTML of the element with the id of `vanilla_output` with the following text: "This content generated with vanilla JavaScript".
+√ 8. Using jQuery, update the HTML of the element with the id of `jquery_output` with the following text: "This content generated with jQuery".
 
 ## JavaScript concepts
-1. Explain what hoisting is. Provide your answer below.
+√ 1. Explain what hoisting is. Provide your answer below.
 
   **Student answer: **
-1. What is a callback? Why do we use them in JavaScript? Provide your answer, and code a simple example below.
+
+-- you can declare variables after it is used or before. javascript looks for declarations before running the script.
+
+
+√ 1. What is a callback? Why do we use them in JavaScript? Provide your answer, and code a simple example below.
 
   **Student answer: **
+  --- a callback is a function that can be passed as arguments in other functions and also be returned by other functions. we use them to make the code easier to read and to reuse functions when needed. for example.......
+
+  lets say we're getting married and in the e-vite(lol) we ask for an rsvp with the guests first and last name so when they send the rsvp, a pop will respond with "Thank you! Can't wait to see you, [firstName]!" 
+
+        function guestName(first, last, call){
+              call(first);
+              }
+        guestName("Juan","Rodriguez", function(last){
+                alert('Thank you! Can't wait to see you,'+ last);
+              })
+
+
 
 ## Functions and operators
 
@@ -62,17 +78,41 @@ http-server
 1. What are the four HTTP verbs that you can use in an XHR that correspond to the CRUD actions (create, read, update, delete)?
   **Student answer:**
 
+  Get, Post, Put, Delete
+
 1. Why did we use Promises when dealing with asynchronous XHR calls?
   **Student answer:**
 
+  because using a regular callback becomes too convulted and if one callback fails, it all fails. using promises you can make an ajax call simultaneously without interference with other calls.
+
 1. Provide a simple example of the syntax for handling a Promise.
   **Student answer:**
+    return function(data){
+      var deferred = Q.defer();
+    
+            $.ajax({
+             url: "something"
+          })
+          .then(function(data1){
+              // do something...
+              return anotherAsyncCall();
+          })
+          .then(function(data2){
+              // do something...  
+              return oneMoreAsyncCall();    
+          })
+          .fail(function(err) {
+             // handle any error resulting from any of the above calls    
+          })
+          .done();
 
 ## Scope and this
 
 What gets logged to the console when the following code executes? Explain why.
 
 **Student answer: **
+the answer is 42 because global scope rules them all.
+
 
 ```
 var answer = "42";
